@@ -4,7 +4,7 @@ import '../App.css';
 const Top=()=>{
 
     return (
-        <div class="top-div">
+        <div className="top-div">
         </div>
     )
 }
