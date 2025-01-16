@@ -1,19 +1,19 @@
-import './App.css'
-import Top from './components/Top'
-import Bottom from './components/Bottom'
-import { ThemeContext, themes } from "../src/helper/ThemeContext";
+import React from "react";
+import Top from "../src/components/Top";
+import Bottom from "../src/components/Bottom";
+import { ThemeContext , themes } from "./helper/ThemeContext";
+
 
 function App() {
 
-
   return (
-    <>
+    <div>
       <Top/>
-      <ThemeContext.Provider value={themes}>
+      <ThemeContext.Provider value={themes}> 
       <Bottom/>
       </ThemeContext.Provider>
-    </>
-  )
+    </div>
+  );
 }
 
-export default App
+export default App;

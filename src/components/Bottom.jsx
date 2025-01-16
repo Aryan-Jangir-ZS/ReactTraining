@@ -1,8 +1,8 @@
 import "../App.css";
 import React, { useRef, useState, useEffect, useContext, useReducer } from "react";
-import ReactDOM from "react-dom";
 import { initialState, reducer } from "../helper/Reducer";
 import { ThemeContext } from "../helper/ThemeContext";
+import root from "../main";
 
 let globalState = [];
 let stateIndex = 0;
@@ -15,7 +15,7 @@ function useNewState(initialValue) {
   }
 
   const setState = (newValue) => {
-    globalState[currentIndex] = typeof newValue === 'function' 
+    globalState[currentIndex] = typeof newValue === 'function'
       ? newValue(globalState[currentIndex])
       : newValue;
     render(); 
@@ -27,15 +27,19 @@ function useNewState(initialValue) {
 
 function render() {
   stateIndex = 0; 
-  ReactDOM.render(<Bottom />, document.getElementById('root'));
+  root.render(<Bottom />);
 }
 
+
 const Bottom = () => {
-  const themes = useContext(ThemeContext);
+
   const [count, setCount] = useNewState(0);
+
+  const themes = useContext(ThemeContext);
   const [currThemeId, setCurrThemeId] = useState(0);
 
   const handleChangeTheme = (event) => {
+    console.log(event.target);
     if (event.target.tagName !== "BUTTON" && event.target.tagName !== "H1") {
       setCurrThemeId((prev) => (prev + 1) % themes.length);
     }
@@ -56,14 +60,15 @@ const Bottom = () => {
       style={{ backgroundColor: themes[currThemeId] }}
       onDoubleClick={handleChangeTheme}
     >
+       <h1>Count is: {count}</h1>
+      <button onClick={() => setCount(count + 1)}>Increment Count</button>
+
       <button onClick={() => dispatch({ type: "increment" })}>Increment</button>
       <div className="count-div">
         <button onClick={() => dispatch({ type: "reset" })}>Reset</button>
         <h1 ref={targetRef}>Count is: {state.count}</h1>
       </div>
       <button onClick={() => dispatch({ type: "decrement" })}>Decrement</button>
-      <p>{count}</p>
-      <button onClick={() => setCount(count + 1)}>Increment Count</button>
     </div>
   );
 };

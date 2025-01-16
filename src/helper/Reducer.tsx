@@ -8,9 +8,9 @@ const reducer = ( state , action ) => {
         case "decrement":
             return { count : state.count -1 };
         case "reset":
-            return initialState;
+            return { count : 0 };
         default:
-            return { count: state.count };
+            return { count: 0 };
     }
 }
 
