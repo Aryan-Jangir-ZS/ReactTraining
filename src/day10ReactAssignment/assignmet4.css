@@ -1,0 +1,19 @@
+.outer-container {
+    margin: 1rem auto;
+    padding: 1rem 2rem;
+    border: 2px solid #b30000;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: row; 
+}
+
+@media (max-width: 600px) {
+    .outer-container {
+        flex-direction: column;
+    }
+}
+
+.img-div {
+    margin-right: 2rem;
+    border: 2px solid #000; 
+}
