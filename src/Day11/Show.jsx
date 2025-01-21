@@ -1,27 +1,38 @@
 import { useState, useEffect } from "react";
 
 const Show = ({ onClickValue }) => {
-    const [showArr, setShowArr] = useState([]);
+    const [showArr, setShowArr] = useState([]); 
+    const [showImg, setShowImg] = useState([]); 
 
     useEffect(() => {
         if (onClickValue && onClickValue >= 1 && onClickValue <= 6) {
             const numbers = Array.from({ length: onClickValue }, (_, i) => i + 1);
             setShowArr(numbers);
-        } else {
+
+            setShowImg([]);
+
+            numbers.forEach((_, index) => {
+                setTimeout(() => {
+                    setShowImg((prev) => [...prev, index]); 
+                }, index * 1000); 
+            });
+        } 
+        else {
             setShowArr([]);
+            setShowImg([]);
         }
     }, [onClickValue]);
 
     return (
-        <div className="dice-display">
-            {
-                showArr.map((i, index) => (
+        <>
+            {showArr.map((i, index) => (
+                showImg.includes(index) && ( 
                     <div key={index} className="dice-face">
                         <img src={`dice${i}.png`} alt={`Dice ${i}`} />
                     </div>
-                ))
-            }
-        </div>
+                )
+            ))}
+        </>
     );
 };
 
