@@ -1,9 +1,4 @@
-* {
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
-  }
-  
+
   :root {
     --color-blue: #4635b1;
     --color-purple: #b771e5;
@@ -84,3 +79,28 @@
     background-color: lightgreen;
   }
   
+.sidebar-container {
+  width: 250px;
+  height: 100vh;
+  background-color: #f8f9fa;
+  padding: 16px;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.sidebar-title {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 16px;
+  color: #343a40;
+}
+
+.sidebar-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.sidebar-item {
+  padding: 8px 0;
+  border-bottom: 1px solid #dee2e6;
+}

@@ -10,7 +10,7 @@ import DiceRollassignment from './Day11/DiceRollassignment';
 import Accordion from './Day12/Accordion';
 import Modal from './Day13Test1/Modal';
 import Debouncing from './Day13Test2/Debouncing';
-import ToolTipDemo from './Day14/ToolTipDemo';
+import ToolTipDemo from './Day14SideBar/ToolTipDemo';
 import Throttling from './Day14Throtting/Throttling';
 
 function App() {
