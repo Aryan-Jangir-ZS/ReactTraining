@@ -1,0 +1,16 @@
+
+.dark {
+    background-color: rgb(32, 2, 2);
+    color:white;
+    border:2px solid cyan;
+
+    
+}
+
+.light {
+    color:black;
+    border:2px solid black;
+    background-color: rgb(176, 158, 158);
+}
+
+

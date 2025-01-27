@@ -1,8 +1,5 @@
 import './App.css';
 import React, { useState } from 'react';
-import { ThemeContext, themes } from './helper/ThemeContext';
-import Top from './day7Components/Top';
-import Bottom from './day7Components/Bottom';
 import Assignment2 from './day8Components/Assignment2';
 import Assignment3 from './Day9/components/Assignment3';
 import Assignment4 from './day10ReactAssignment/Assignment4';
@@ -10,25 +7,15 @@ import DiceRollassignment from './Day11/DiceRollassignment';
 import Accordion from './Day12/Accordion';
 import Modal from './Day13Test1/Modal';
 import Debouncing from './Day13Test2/Debouncing';
-import ToolTipDemo from './Day14SideBar/ToolTipDemo';
 import Throttling from './Day14Throtting/Throttling';
+import ThemeToggle from './Day15UseContext/ThemeToggle';
+import ContextProvider from './Day15UseContext/ContextProvider';
 
 function App() {
   const [activeAssignment, setActiveAssignment] = useState(null);
 
   const assignments = [
-    {
-      id: 'assignment1',
-      label: 'Assignment 1',
-      component: (
-        <>
-          <Top />
-          <ThemeContext.Provider value={themes}>
-            <Bottom />
-          </ThemeContext.Provider>
-        </>
-      ),
-    },
+    
     {
       id: 'assignment2',
       label: 'Assignment 2',
@@ -74,17 +61,19 @@ function App() {
       ),
     },
     {
-      id: 'assignment9',
-      label: 'Anirudh (ToolTip assignment)',
-      component: (
-          <ToolTipDemo/>
-      ),
-    },
-    {
       id: 'assignment10',
       label: 'Bipin (Throttling assignment)',
       component: (
           <Throttling/>
+      ),
+    },
+    {
+      id: 'assignment11',
+      label: 'Bipin (UseContext)',
+      component: (
+        <ContextProvider>
+          <ThemeToggle/>
+      </ContextProvider>
       ),
     },
   ];
