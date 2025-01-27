@@ -43,7 +43,6 @@ const ToolTipDemo = () => {
 
       <SideBar isOpen={isSidebarOpen} onClose={() => setIsSidebarOpen(false)} />
       <main
-        className="main"
         onClick={(e) => e.stopPropagation()}>
         {Array.from({ length: 9 }).map((_, i) => (
           <div className="card" key={i}>
@@ -52,6 +51,7 @@ const ToolTipDemo = () => {
                 text={Tooltips[i].text}
                 alignment={Tooltips[i].alignment}
                 toggleSidebar={setIsSidebarOpen}
+                isButton={true}
               />
             ) : (
               <Hover

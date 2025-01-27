@@ -10,9 +10,9 @@ const SideBar = ({ isOpen, onClose }) => {
       }
     };
 
-    document.addEventListener("mousedown", handleClickOutside);
+    document.addEventListener("click", handleClickOutside);
     return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
+      document.removeEventListener("click", handleClickOutside);
     };
   }, [onClose]);
 
@@ -30,6 +30,10 @@ const SideBar = ({ isOpen, onClose }) => {
         boxShadow: "2px 0 5px rgba(0, 0, 0, 0.1)",
         zIndex: 1001,
         padding: "16px",
+      }}
+
+      onClick={(e) => {
+        e.stopPropagation();
       }}
     >
       <h2
