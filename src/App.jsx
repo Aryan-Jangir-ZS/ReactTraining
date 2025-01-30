@@ -8,7 +8,9 @@ import Assignment3 from './Day9/components/Assignment3';
 import Assignment4 from './day10ReactAssignment/Assignment4';
 import DiceRollassignment from './Day11/DiceRollassignment';
 import Accordion from './Day12/Accordion';
-import Modal from './Day13/Modal';
+import Modal from './Day13Test1/Modal';
+import Debouncing from './Day13Test2/Debouncing';
+import ToolTipDemo from './Day14/ToolTipDemo';
 
 function App() {
   const [activeAssignment, setActiveAssignment] = useState(null);
@@ -63,6 +65,20 @@ function App() {
           <Modal/>
       ),
     },
+    {
+      id: 'assignment8',
+      label: 'Debouncing assignment',
+      component: (
+          <Debouncing/>
+      ),
+    },
+    {
+      id: 'assignment9',
+      label: 'Anirudh (ToolTip assignment)',
+      component: (
+          <ToolTipDemo/>
+      ),
+    },
   ];
 
   return (
@@ -89,3 +105,7 @@ function App() {
 }
 
 export default App;
+
+
+
+
