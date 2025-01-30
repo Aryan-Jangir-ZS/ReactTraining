@@ -137,29 +137,43 @@ body, html {
 .roll-button:hover {
   background-color: #45a049;
 }
-.dice-display {
-  border: solid 2px black;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: repeat(2, 1fr);
-  gap: 20px;
-  width: 600px;
-  height: 500px;
+
+.dice-roll-container {
+  text-align: center;
   margin: 20px auto;
-  padding: 10px;
-  background-color: white;
-  justify-items: center;
+}
+
+.dice-display {
+  display: flex;
+  flex-direction: row;
+    flex-wrap: wrap; 
+    gap: 20px;
+    width: 400px;
+    min-height: 300px;
+    border: 2px solid black;
+    padding: 20px;
+    margin: 20px auto;
+    background-color: white;
+    justify-content: space-evenly; 
+    align-items: center; 
+}
+
+.dice-row {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
   align-items: center;
+  justify-content: center;
 }
 
 .dice-face {
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: white;
-  width: 70%;
-  height: 70%;
-  
+  background-color: #f9f9f9;
+  width: 70px;
+  height: 70px;
+  border: 2px solid #ccc;
   border-radius: 10px;
   overflow: hidden;
 }

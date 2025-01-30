@@ -10,13 +10,14 @@ const DiceRollassignment = () => {
     const [isLoading, setIsLoading] = useState(false);
 
 
+
     const handleRollDice = () => {
 
         const value = parseInt(diceValue, 10);
         console.log(value);
         setIsLoading(true);
 
-        if(value > 6 || value < 1){
+        if(value > 6 || value < 2){
             setIsValid(false);
             setIsLoading(false); 
 
@@ -28,7 +29,7 @@ const DiceRollassignment = () => {
                 setIsLoading(false); 
             }, 2000);
 
-        if (!isNaN(value) && value >= 1 && value <= 6) {
+        if (!isNaN(value) && value >= 2 && value <= 6) {
             setOnClickValue(value);
         } else {
             setOnClickValue(null); 
@@ -56,3 +57,4 @@ const DiceRollassignment = () => {
 };
 
 export default DiceRollassignment;
+

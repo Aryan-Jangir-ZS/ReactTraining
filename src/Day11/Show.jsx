@@ -1,39 +1,40 @@
-import { useState, useEffect } from "react";
+
+import { useEffect, useState } from "react";
 
 const Show = ({ onClickValue }) => {
-    const [showArr, setShowArr] = useState([]); 
-    const [showImg, setShowImg] = useState([]); 
+    const [validPairs, setValidPairs] = useState([]);
 
     useEffect(() => {
-        if (onClickValue && onClickValue >= 1 && onClickValue <= 6) {
-            const numbers = Array.from({ length: onClickValue }, (_, i) => i + 1);
-            setShowArr(numbers);
-
-            setShowImg([]);
-
-            numbers.forEach((_, index) => {
-                setTimeout(() => {
-                    setShowImg((prev) => [...prev, index]); 
-                }, index * 1000); 
-            });
-        } 
-        else {
-            setShowArr([]);
-            setShowImg([]);
+        if (onClickValue >= 2 && onClickValue <= 6) {
+            const pairs = [];
+            for (let i = 1; i <= 6; i++) {
+                for (let j = 1; j <= 6; j++) {
+                    if (i + j === onClickValue) {
+                        pairs.push([i, j]);
+                    }
+                }
+            }
+            setValidPairs(pairs);
+        } else {
+            setValidPairs([]);
         }
     }, [onClickValue]);
 
     return (
         <>
-            {showArr.map((i, index) => (
-                showImg.includes(index) && ( 
-                    <div key={index} className="dice-face">
-                        <img src={`dice${i}.png`} alt={`Dice ${i}`} />
+            {validPairs.map((pair, index) => (
+                <div key={index} className="dice-row">
+                    <div className="dice-face">
+                        <img src={`dice${pair[0]}.png`} alt={`Dice ${pair[0]}`} />
                     </div>
-                )
+                    <div className="dice-face">
+                        <img src={`dice${pair[1]}.png`} alt={`Dice ${pair[1]}`} />
+                    </div>
+                </div>
             ))}
         </>
     );
 };
 
 export default Show;
+
