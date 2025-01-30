@@ -8,6 +8,7 @@ import Assignment3 from './Day9/components/Assignment3';
 import Assignment4 from './day10ReactAssignment/Assignment4';
 import DiceRollassignment from './Day11/DiceRollassignment';
 import Accordion from './Day12/Accordion';
+import Modal from './Day13/Modal';
 
 function App() {
   const [activeAssignment, setActiveAssignment] = useState(null);
@@ -53,6 +54,13 @@ function App() {
       label: 'Anirudh (make accordion assignment)',
       component: (
           <Accordion/>
+      ),
+    },
+    {
+      id: 'assignment7',
+      label: 'Anirudh (Modal assignment)',
+      component: (
+          <Modal/>
       ),
     },
   ];
